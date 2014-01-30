@@ -4,11 +4,12 @@
  */
 
  var aws = require("aws-lib");
-
  //export values from a .gitignore file
- var sk = "--"
- var ak = "--"
- var tag = "--"
+ var aws_credentials = require("./../../private_credentials") 
+ 
+ var sk = aws_credentials.getSerialKey();
+ var ak = aws_credentials.getActivationKey();
+ var tag = aws_credentials.getTag();
 
  exports.index = function(req, res) {
 
