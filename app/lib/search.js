@@ -8,16 +8,28 @@
  var tag = aws_credentials.getTag();
 
 
- exports.search = function(title, c_back) {
+/*
+ * - doSearch(title, render_results[callback])
+ * Interface for Amazon request.
+ */
+
+ exports.doSearch = function(title, render_result) {
 
  	var prodAdv = aws.createProdAdvClient(ak, sk, tag);
  	var options = {SearchIndex: "Books", Title: title, IdType: "ISBN"}
 
- 	prodAdv.call("ItemSearch", options, function(err, result) {
- 		console.log("Results for '"+ title+"'");
- 		console.log(result);
- 		
- 		c_back(title, result);
+ 	prodAdv.call("ItemSearch", options, function (err, result) {
 
+ 		//If err....
+ 		parseResponse(title, result, render_result);
  	});
  }
+
+
+
+function parseResponse(title, result, render_result) {
+	ASIN = result['Items']['Item'][0]['ASIN'];
+	detailPageUrl = result['Items']['Item'][0]['DetailPageURL'];
+
+	render_result(title, {'ASIN': ASIN, 'URL': detailPageUrl});
+}

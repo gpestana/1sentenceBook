@@ -16,15 +16,15 @@
  exports.search = function(req, res) {
 
  	var title = req.params.title; 	
- 	result = search.search(title, function (title, result) {
+ 	result = search.doSearch(title, function (title, result) {
  		res.render('search', { 
  			title: title,
- 			results: JSON.stringify(result["Items"]["Item"])});
- 	}); 	
- };
+ 			results: JSON.stringify(result)
+ 		})
+ 	});
+ } 	
 
 
-
-exports.error = function(req, res){
-	res.render('error', {title: 'Ups..'});
-}; 
+ exports.error = function(req, res){
+ 	res.render('error', {title: 'Ups..'});
+ }; 
