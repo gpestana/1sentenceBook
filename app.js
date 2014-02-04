@@ -36,7 +36,6 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/search/:title', routes.search);
-app.get('/test/:var', routes.test);
 app.get('*', routes.error);
 
 

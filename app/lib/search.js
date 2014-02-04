@@ -8,7 +8,7 @@
  var tag = aws_credentials.getTag();
 
 
- exports.search = function(title) {
+ exports.search = function(title, c_back) {
 
  	var prodAdv = aws.createProdAdvClient(ak, sk, tag);
  	var options = {SearchIndex: "Books", Title: title, IdType: "ISBN"}
@@ -16,6 +16,8 @@
  	prodAdv.call("ItemSearch", options, function(err, result) {
  		console.log("Results for '"+ title+"'");
  		console.log(result);
- 		return result;
+ 		
+ 		c_back(title, result);
+
  	});
  }

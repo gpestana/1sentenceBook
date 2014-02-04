@@ -15,34 +15,13 @@
 
  exports.search = function(req, res) {
 
- 	var title = req.params.title; 
-
- 	res.render('search', result = callback(title), { 
- 		title: title,
- 		results: JSON.stringify(result["Items"]["Item"])}); 	
-
+ 	var title = req.params.title; 	
+ 	result = search.search(title, function (title, result) {
+ 		res.render('search', { 
+ 			title: title,
+ 			results: JSON.stringify(result["Items"]["Item"])});
+ 	}); 	
  };
-
-
- function callback(title) {
-
- 	return search.search(title);
-
- 	//console.log("CALLBACK");
-/*
- 	res.render('search', { 
- 		title: title,
- 		results: JSON.stringify(result["Items"]["Item"])});
- 
-*/
-};
-
-
-exports.test = function(req, res){
-	res.render('test', { 
-		title: 'Test motherfucker!!',
-		param: req.params.var });
-};
 
 
 
