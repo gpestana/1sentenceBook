@@ -25,7 +25,6 @@
  }
 
 
-
 function parseResponse(title, result, render_result) {
 	ASIN = result['Items']['Item'][0]['ASIN'];
 	detailPageUrl = result['Items']['Item'][0]['DetailPageURL'];

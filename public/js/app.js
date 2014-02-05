@@ -1,0 +1,1 @@
+//Client side routing and app module declaration + add filters and services

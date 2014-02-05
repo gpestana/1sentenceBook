@@ -3,6 +3,11 @@
  * Routing handlers
  */
 
+/*
+ * Have to be completely changed to integrate with Angular:
+ *   - routes are make call api.js <--> angular client side
+ */
+
 
  search = require('./../lib/search')
 
