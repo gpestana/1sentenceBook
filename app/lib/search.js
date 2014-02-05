@@ -19,8 +19,7 @@
  	var options = {SearchIndex: "Books", Title: title, IdType: "ISBN"}
 
  	prodAdv.call("ItemSearch", options, function (err, result) {
-
- 		//If err....
+ 		//If err...
  		parseResponse(title, result, render_result);
  	});
  }
