@@ -1,0 +1,9 @@
+extends layout 
+ 
+ p There are {{entries.length}} entries.
+
+ div(ng-repeat="entry in entries")
+  h3 {{entry.title}}
+  p {{entry.text}}
+  br
+  

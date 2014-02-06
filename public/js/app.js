@@ -1,1 +1,15 @@
-//Client side routing and app module declaration + add filters and services
+angular.module('app', ['app.filters', 'app.services', 'app.services']).
+	config(['$routerProvider', function ($routerProvider) {
+		$routerProvider.
+			when('/', {
+				templateUrl: 'index',
+				controller: IndexCrtl
+			}).
+			when('/showData', {
+				templateUrl: 'partials/showData'.
+				controller: ShowDataCrtl
+			}),
+			otherwise({
+				redirectTo: '/'
+			});
+	}]);

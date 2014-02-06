@@ -9,6 +9,8 @@
  var routes = require('./app/routes');
  var path = require('path');
 
+ var api = require ('./app/routes/api');
+
  var app = express();
 
 // all environments
@@ -33,11 +35,14 @@ if ('development' == app.get('env')) {
 /*
  * Routing table
  */
-
+/*
 app.get('/', routes.index);
 app.get('/search/:title', routes.search);
 app.get('*', routes.error);
+*/
 
+app.get('/', routes.index);
+app.get('/showData', api.showData);
 
 
 http.createServer(app).listen(app.get('port'), function(){
