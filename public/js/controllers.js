@@ -1,9 +1,6 @@
 function IndexCrtl($scope, $http) {
 	$http.get('api/').
-	
-	console.log("aaaa");
-
-	success(function(data) {
+	success(function(data) {	
 		$scope.form = data;
 	});
 }
