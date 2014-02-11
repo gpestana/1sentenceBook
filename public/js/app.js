@@ -6,9 +6,9 @@ angular.module('app', ['app.filters', 'app.services', 'app.services']).
 				controller: IndexCrtl
 			}).
 			when('/showData', {
-				templateUrl: 'partials/showData'.
+				templateUrl: 'partials/showData',
 				controller: ShowDataCrtl
-			}),
+			}).
 			otherwise({
 				redirectTo: '/'
 			});

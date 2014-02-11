@@ -4,7 +4,7 @@ search = require('./../lib/search')
 
 
 //global data just for testing
-var data = { "data": [
+var data = { "entries": [
 	{"title":"Title1", "text": "Text1 Text1 Text1."},
 	{"title":"Title2", "text": "Text2 Text2 Tex2t."} 
 ]}
@@ -15,9 +15,20 @@ exports.index = function(req, res) {
 }
 
 exports.showData = function (req, res) {
-	console.log("showData");
-	res.json(data);
-}
+	var entries = [];
+	data.entries.forEach(
+		function(entry, i) {
+			entries.push({
+				id: i,
+				title: entry.title,
+				text: entry.text
+			});
+		});
+
+	res.json({
+		entries: entries
+	});
+};
 
 
 exports.getEntries = function(req, res) {
